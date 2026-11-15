@@ -1,0 +1,30 @@
+{
+  "name": "Fine-tuning LLMs",
+  "image": "nvidia/cuda:13.5.0-cudnn-devel-ubuntu26.04",
+  "runArgs": [
+    "--platform=linux/arm64",
+    "--gpus=all"
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "vscode",
+      "uid": "1000",
+      "gid": "1000"
+    }
+  },
+  "containerUser": "vscode",
+  "remoteUser": "vscode",
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"
+      }
+    }
+  }
+  
+}
